@@ -1,0 +1,19 @@
+body {
+	margin: 20px;
+	overflow-x: hidden;
+}
+
+.greytext {
+	color: #aaaaaa;
+	width: 30px;
+	display: inline-block;
+}
+
+a {
+	color: #333333;
+	text-decoration: none;
+}
+
+.well {
+	min-height: 100px;
+}

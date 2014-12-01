@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/ripples.min.css" rel="stylesheet">
+    <link href="css/material-wfont.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="http://j.mp/jqymin"></script>
+    <title>reddit listen</title>
+  </head>
+
+  <body>
+    <div class="row">
+      <div class="col-md-4">
+      	<div class="headline" id="header-webdev"></div>
+        <div id="reddit-webdev"></div>
+      </div>
+      <div class="col-md-4">
+      	<div class="headline" id="header-web_design"></div>
+        <div id="reddit-web_design"></div>
+      </div>
+      <div class="col-md-4">
+      	<div class="headline" id="header-logodesign"></div>
+        <div id="reddit-logodesign"></div>
+      </div>
+    </div>
+
+    <script>
+	    function getReddit(subreddit) { 
+	    	  $("#header-"+subreddit).append('<div><h1>/'+subreddit+'</h1></div>');
+		      $.getJSON(
+		        "http://www.reddit.com/r/"+subreddit+".json?jsonp=?",
+		        function foo(data)
+		        {
+		          $.each(
+		            data.data.children.slice(0, 10),
+		            function (i, post) {
+		              var votes = post.data.ups - post.data.downs;
+		              $("#reddit-"+subreddit).append( '<div class="well bs-component"><span class="greytext">'+votes+'</span> <a href="'+ post.data.url +'" target="_blank"> ' + post.data.title + '</a> - <a href="http://www.reddit.com/'+post.data.permalink+'" target="_blank">reddit</a></div>' );
+		            }
+		          )
+		        }
+		      )
+		      .success(function() {  })
+		      .error(function() {  })
+		      .complete(function() {  });
+	    }
+    </script>
+
+
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <script src="js/ripples.min.js"></script>
+    <script src="js/material.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $.material.init();
+            getReddit('webdev');
+            getReddit('web_design');
+            getReddit('logodesign');
+        });
+    </script>
+
+  </body>
+</html>
