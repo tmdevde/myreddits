@@ -1,19 +1,96 @@
 body {
-	margin: 20px;
-	overflow-x: hidden;
+	font: 12px/18px "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+	background-color: #f2f2f2;
+	color: #333;
+	-webkit-font-smoothing: antialiased;
+	margin: 0;
+	padding: 0;
 }
 
 .greytext {
-	color: #aaaaaa;
-	width: 30px;
-	display: inline-block;
+	color: #888;
+
 }
 
 a {
-	color: #333333;
+	color: #08c;
 	text-decoration: none;
 }
 
-.well {
-	min-height: 100px;
+a:hover {
+	color: #08c;
+	text-decoration: underline;
+}
+
+#main {
+	margin: 20px auto;
+	width: 980px;
+	position: relative;
+}
+
+#content {
+	padding: 60px 120px;
+	width: 740px;
+	position: relative;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-o-border-radius: 4px;
+	-khtml-border-radius: 4px;	
+	background: #fff;
+	border: 1px solid;
+	border-color: #e5e5e5 #dbdbdb #d2d2d2;
+	-webkit-box-shadow: rgba(0,0,0,0.3) 0 1px 3px;
+	-moz-box-shadow: rgba(0,0,0,0.3) 0 1px 3px;
+	box-shadow: rgba(0,0,0,0.3) 0 1px 3px;
+}
+
+#content:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+
+ul {
+	float: left;
+	position: relative;
+	width: 100%;
+	list-style: none outside;
+}
+
+li.title {
+	border-bottom: 1px solid #E4E4E4;
+	font-size: 16px;
+	padding-bottom: 5px;
+	margin-bottom: 10px;
+	padding-top: 18px;
+	clear: both;
+}
+
+
+#main #content dl {
+position: relative;
+float: left;
+width: 100%;
+line-height: 1.8em;
+margin: 0px;
+}
+
+#main #content dt {
+position: relative;
+float: left;
+margin-bottom: 12px;
+color: #888;
+display: block;
+width: 85px;
+}
+
+#main #content dd {
+position: relative;
+margin-bottom: 12px;
+width: 640px;
+display: block;
 }
